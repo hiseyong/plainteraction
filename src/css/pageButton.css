@@ -1,0 +1,19 @@
+.pagebutton {
+    position: absolute;
+    z-index: 1;
+    background-color: #ffffff;
+    background-color: rgba( 255, 255, 255, 0 );
+    font-size: 400%;
+    color: rgb(119, 119, 119);
+    font-weight: bolder;
+}
+
+#previous {
+    left: 0;
+    top: 50%;
+}
+
+#next {
+    right: 0;
+    top: 50%;
+}
