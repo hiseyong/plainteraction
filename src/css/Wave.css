@@ -1,0 +1,13 @@
+#wavecanvas {
+    position: relative;
+    z-index: 0;
+}
+
+#waverange {
+    position: absolute;
+    z-index: 1;
+    width: 20%;
+    left: 40%;
+    top: 5%;
+    background: #ccc;
+}
