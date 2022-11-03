@@ -2,26 +2,28 @@ import { LightWave } from "./interects/lightline/LightWave";
 import { useClientWidthHeight } from "./hooks/useClientWidthHeight";
 import { useState,useEffect } from "react";
 import { BounceBall } from "./interects/bounceball/BounceBall";
+import { WaterWave } from "./interects/wave/WaterWave";
 import './css/pageButton.css';
 import './css/componentCover.css'
 import './css/app.css'
 
 function App() {
-    const maxPage = 1;
+    const maxPage = 2;
     const [presentPage, setPresentPage] = useState(Math.floor(Math.random() * maxPage));
     const [component, setComponent] = useState();
     const clientRect = useClientWidthHeight();
     const canvasWidth = clientRect.innerWidth;
     const canvasHeight = clientRect.innerHeight;
+    const componentList = [
+        <LightWave canvasWidth={canvasWidth} canvasHeight={canvasHeight - 4}/>,
+        <BounceBall canvasWidth={canvasWidth} canvasHeight={canvasHeight - 4}/>,
+        <WaterWave canvasWidth={canvasWidth} canvasHeight={canvasHeight - 4}/>
+    ]
 
 
     useEffect(() => {
-        if(presentPage == 1) {
-            setComponent(<LightWave canvasWidth={canvasWidth} canvasHeight={canvasHeight - 4}/>); 
-        } else if(presentPage == 0) {
-            setComponent(<BounceBall canvasWidth={canvasWidth} canvasHeight={canvasHeight - 4}/>)
-        }
-    },[presentPage,canvasHeight, canvasWidth])
+        setComponent(componentList[presentPage]);
+    },[presentPage,canvasHeight, canvasWidth]);
 
 
     const onClickPreviousButton = () => {
