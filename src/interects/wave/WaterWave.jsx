@@ -1,7 +1,9 @@
 import { useCanvas } from "../../hooks/useCanvas";
-import { Wave } from "./Wave";
+import { Waves } from "./Waves";
+import { useState } from "react";
 export function WaterWave(props) {
-    const wave = new Wave(props.canvasWidth, props.canvasHeight);
+    const [waveLayer, setWaveLayer] = useState(3);
+    const wave = new Waves(props.canvasWidth, props.canvasHeight, waveLayer);
     wave.init();
     const animate = (ctx) => {
         ctx.clearRect(0,0,props.canvasWidth,props.canvasHeight);
@@ -9,6 +11,10 @@ export function WaterWave(props) {
     }
     const canvasRef = useCanvas(props.canvasWidth, props.canvasHeight, animate);
     return(
-        <canvas ref={canvasRef}/>
+        <div>
+            
+            <input type="range" min="1" max="11" id='waverange'/>
+            <canvas ref={canvasRef} id='wavecanvas'/>
+        </div>
     )
 }
