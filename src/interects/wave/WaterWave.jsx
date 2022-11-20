@@ -7,6 +7,7 @@ export function WaterWave(props) {
     const onChange = (e) => {
         setWaveLayer(e.target.value);
     }
+
     const wave = new Waves(props.canvasWidth, props.canvasHeight, waveLayer);
     wave.init();
     const animate = (ctx) => {

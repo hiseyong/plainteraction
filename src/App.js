@@ -3,12 +3,13 @@ import { useClientWidthHeight } from "./hooks/useClientWidthHeight";
 import { useState,useEffect } from "react";
 import { BounceBall } from "./interects/bounceball/BounceBall";
 import { WaterWave } from "./interects/wave/WaterWave";
+import { WaterDrop } from "./interects/waterdrop/WaterDrop";
 import './css/pageButton.css';
 import './css/componentCover.css'
 import './css/app.css'
 
 function App() {
-    const maxPage = 2;
+    const maxPage = 3;
     const [presentPage, setPresentPage] = useState(Math.floor(Math.random() * maxPage));
     const [component, setComponent] = useState();
     const clientRect = useClientWidthHeight();
@@ -17,7 +18,8 @@ function App() {
     const componentList = [
         <LightWave canvasWidth={canvasWidth} canvasHeight={canvasHeight - 4}/>,
         <BounceBall canvasWidth={canvasWidth} canvasHeight={canvasHeight - 4}/>,
-        <WaterWave canvasWidth={canvasWidth} canvasHeight={canvasHeight - 4}/>
+        <WaterWave canvasWidth={canvasWidth} canvasHeight={canvasHeight - 4}/>,
+        <WaterDrop canvasWidth={canvasWidth} canvasHeight={canvasHeight - 4}/>
     ]
 
 
